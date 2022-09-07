@@ -9,16 +9,15 @@ const client = new MongoClient(connectionString, {
 });
 
 let dbConnection;
-let collection;
 
 //function connecting to server?
 function connectToServer(callback) {
-  client.connect(function (err, db) {
-    if (err || !db) {
+  client.connect(function (err, mongoClient) {
+    if (err || !mongoClient) {
       return callback(err);
     }
     //database connection? - pass DATABASE name as an argument (not collection)
-    dbConnection = db.db("blog");
+    dbConnection = mongoClient.db("blog");
     console.log("Successfully connected to MongoDB.");
     return callback();
   });
@@ -46,7 +45,7 @@ module.exports = {
 // run().catch(console.dir);
 
 //module.exports.test = "This is a test";
-exports.collection = collection;
+//exports.collection = collection;
 
 // //actually connecting to database
 // client.connect((err) => {
