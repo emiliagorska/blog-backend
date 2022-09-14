@@ -16,6 +16,14 @@ function connectToServer(callback) {
     if (err || !mongoClient) {
       return callback(err);
     }
+    //bunch of console logs to look into what's happening
+    console.log("WILL PRINT MONGOCLIENT");
+    //mongoClient seems to be an object with properties, one of them perhaps  being db? not sure though
+    console.log(mongoClient);
+    console.log("WILL PRINT MONGOCLIENT.DB");
+    //mongoClient.db seems to be an object refering to the particular database (database of name passed as an argument?)
+    console.log(mongoClient.db("blog"));
+    console.log("END OF PRINT MONGOCLIENT.DB");
     //database connection? - pass DATABASE name as an argument (not collection)
     dbConnection = mongoClient.db("blog");
     console.log("Successfully connected to MongoDB.");
@@ -27,6 +35,7 @@ function getDatabase() {
   return dbConnection;
 }
 
+//FROM THE TUTORIAL: The main object this module exports out is the _db variable (possibly the dbConnection?), which will hold the "sample_airbnb" database-level object. Via this object, we will be able to access any collection within that database or change its context to another database
 module.exports = {
   connectToServer: connectToServer,
   getDatabase: getDatabase,
