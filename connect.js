@@ -16,14 +16,6 @@ function connectToServer(callback) {
     if (err || !mongoCluster) {
       return callback(err);
     }
-    //bunch of console logs to look into what's happening
-    console.log("WILL PRINT MONGOCLIENT");
-    //mongoClient seems to be an object with properties, one of them perhaps  being db? not sure though
-    console.log(mongoCluster);
-    console.log("WILL PRINT MONGOCLIENT.DB");
-    //mongoClient.db seems to be an object refering to the particular database (database of name passed as an argument?)
-    console.log(mongoCluster.db("blog"));
-    console.log("END OF PRINT MONGOCLIENT.DB");
     //database connection? - pass DATABASE name as an argument (not collection)
     dbConnection = mongoCluster.db("blog");
     console.log("Successfully connected to MongoDB.");
