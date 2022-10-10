@@ -1,7 +1,7 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const connectionString =
   "mongodb+srv://emiliagorska:sommerville@blog-project-cluster.ppoy2d6.mongodb.net/?retryWrites=true&w=majority";
-//initiate mongo client - local, a class tht we'll use to try to establish a connection with mongo database
+//initiate mongo client - local, a class that we'll use to try to establish a connection with mongo database
 const client = new MongoClient(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -12,20 +12,20 @@ let dbConnection;
 
 //function connecting to server?
 function connectToServer(callback) {
-  client.connect(function (err, mongoClient) {
-    if (err || !mongoClient) {
+  client.connect(function (err, mongoCluster) {
+    if (err || !mongoCluster) {
       return callback(err);
     }
     //bunch of console logs to look into what's happening
     console.log("WILL PRINT MONGOCLIENT");
     //mongoClient seems to be an object with properties, one of them perhaps  being db? not sure though
-    console.log(mongoClient);
+    console.log(mongoCluster);
     console.log("WILL PRINT MONGOCLIENT.DB");
     //mongoClient.db seems to be an object refering to the particular database (database of name passed as an argument?)
-    console.log(mongoClient.db("blog"));
+    console.log(mongoCluster.db("blog"));
     console.log("END OF PRINT MONGOCLIENT.DB");
     //database connection? - pass DATABASE name as an argument (not collection)
-    dbConnection = mongoClient.db("blog");
+    dbConnection = mongoCluster.db("blog");
     console.log("Successfully connected to MongoDB.");
     return callback();
   });
