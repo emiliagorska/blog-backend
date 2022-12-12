@@ -1,6 +1,6 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const connectionString =
-  "mongodb+srv://emiliagorska:sommerville@blog-project-cluster.ppoy2d6.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://emiliagorska:CAvAL5TDf7RulgrL@blog-project-cluster.ppoy2d6.mongodb.net/?retryWrites=true&w=majority";
 //initiate mongo client - local, a class that we'll use to try to establish a connection with mongo database
 const client = new MongoClient(connectionString, {
   useNewUrlParser: true,
@@ -13,11 +13,13 @@ let dbConnection;
 //function connecting to server?
 function connectToServer(callback) {
   client.connect(function (err, mongoCluster) {
-    if (err || !mongoCluster) {
+    if (err) {
+      console.log(err, mongoCluster);
+      console.log("Line 17");
       return callback(err);
     }
     //database connection? - pass DATABASE name as an argument (not collection)
-    dbConnection = mongoCluster.db("blog");
+    dbConnection = client.db("blog");
     console.log("Successfully connected to MongoDB.");
     return callback();
   });
