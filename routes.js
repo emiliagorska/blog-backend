@@ -9,6 +9,7 @@ const databaseConnection = require("./connect.js");
 //app.get("/listings", async (req, res) => {
 recordRoutes.route("/blogs").get(async function (req, res) {
   const getDatabase = databaseConnection.getDatabase();
+  console.log("AAAAA", getDatabase.collection("posts"));
 
   getDatabase
     .collection("posts")
