@@ -25,9 +25,6 @@ describe("/GET posts", () => {
       .request(server)
       .get("/blogs")
       .end((err, res) => {
-        // console.log("BLABLABLA");
-        // console.log("RES", res);
-        // console.log(err);
         res.should.have.status(200);
         res.body.should.be.a("array");
         res.body.length.should.be.eql(3);
@@ -40,7 +37,6 @@ describe("/GET posts", () => {
       .request(server)
       .get("/blogs/63174a230b2c949b81ad2982")
       .end((err, res) => {
-        //console.log("RESPONSE TO 2ND TEST!!!: ", res);
         res.should.have.status(200);
         res.body.should.be.a("array");
         res.body.length.should.be.eql(1);
@@ -54,8 +50,6 @@ describe("/GET posts", () => {
       .request(server)
       .get("/blogs/63174a230b2c949b81ad2912")
       .end((err, res) => {
-        console.log("RESPONSE TO 2ND TEST!!!: ", res.error.text);
-
         res.should.have.status(404);
         expect(res.error.text).to.be.a("string", "Error -listing not found!");
         //res.error.should.have.text("Error -listing not found!");

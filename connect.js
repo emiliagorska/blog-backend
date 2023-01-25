@@ -16,7 +16,6 @@ function connectToServer(callback) {
   client.connect(function (err, mongoCluster) {
     if (err) {
       console.log(err, mongoCluster);
-      console.log("Line 17");
       return callback(err);
     }
     //database connection? - pass DATABASE name as an argument (not collection)
