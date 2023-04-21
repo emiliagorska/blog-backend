@@ -1,5 +1,4 @@
-// Loads the configuration from config.env to process.env
-require("dotenv").config({ path: "./config.env" });
+require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
@@ -33,3 +32,5 @@ databaseConnection.connectToServer(function (err) {
     console.log(`Server is running on port: ${PORT}`);
   });
 });
+
+module.exports = app;
