@@ -2,6 +2,8 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
+const functions = require("firebase-functions")
+
 
 //Get connection to database aka get MongoDB driver connection
 const databaseConnection = require("./connect.js");
@@ -34,3 +36,4 @@ databaseConnection.connectToServer(function (err) {
 });
 
 module.exports = app;
+exports.api = functions.https.onRequest(app)
