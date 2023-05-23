@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/emiliagorskaa/blog-backend.git"
+    "url": "git+https://github.com/emiliagorska/blog-backend.git"
   },
   "author": "Emilia Gorska",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/emiliagorskaa/blog-backend/issues"
+    "url": "https://github.com/emiliagorska/blog-backend/issues"
   },
-  "homepage": "https://github.com/emiliagorskaa/blog-backend#readme",
+  "homepage": "https://github.com/emiliagorska/blog-backend#readme",
   "dependencies": {
     "chai": "^4.3.7",
     "chai-http": "^4.3.0",
