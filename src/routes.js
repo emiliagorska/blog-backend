@@ -6,6 +6,12 @@ const recordRoutes = express.Router();
 
 const databaseConnection = require("./connect.js");
 
+recordRoutes.get("/", (req, res) => {
+  res.json({
+    hello: "hi!"
+  });
+});
+
 //app.get("/listings", async (req, res) => {
 recordRoutes.route("/blogs").get(async function (req, res) {
   const getDatabase = databaseConnection.getDatabase();

@@ -15,6 +15,7 @@ let dbConnection;
 function connectToServer(callback) {
   client.connect(function (err, mongoCluster) {
     if (err) {
+      console.log("ERROR IN CONNECT.JS:")
       console.log(err, mongoCluster);
       return callback(err);
     }
